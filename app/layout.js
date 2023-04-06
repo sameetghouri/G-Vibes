@@ -12,7 +12,10 @@ export default function RootLayout({ children }) {
       <body className='bg-gray-100 flex flex-col items-center'>
         <main className=' w-full font-nuni min-h-screen max-w-5xl'>
           <Navbar />
+          <div className='px-2'>
           {children}
+          </div>
+          
         </main>
       </body>
     </html>
