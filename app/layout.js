@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className='bg-gray-100 flex flex-col items-center'>
-        <main className=' w-full font-nuni min-h-screen max-w-4xl'>
+        <main className=' w-full font-nuni min-h-screen max-w-5xl'>
           <Navbar />
           {children}
         </main>
