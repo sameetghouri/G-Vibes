@@ -3,8 +3,7 @@ import Image from 'next/image'
 
 export default function Navbar() {
   return (
-    <div className="flex flex-col items-center mb-4 h-64 bg-cover rounded-b"
-    style={{"backgroundImage": "url(/banner.png)"}}>
+    <div className="flex flex-col items-center mb-4 h-64 bg-[url(/banner.png)] bg-cover rounded-b">
       <nav className='w-full flex items-center justify-end py-3'>
         <div className='mr-auto flex items-center'>
         <Image src="/rupee.png" width={50} height={48} alt='logo' />
