@@ -21,14 +21,15 @@ export const AuthContextProvider = ({ children }) => {
             setuser(null)
             console.log('User Logged Out')
         })
-        netlifyIdentity.on("init", () => {
-            setauthReady(true)
-            setuser(user)
-            console.log('Netlify Identity initialized')
-        })
+        
         //init netlify identity connection
             netlifyIdentity.init();
-            
+
+            netlifyIdentity.on("init", () => {
+                setauthReady(true)
+                setuser(user)
+                console.log('Netlify Identity initialized')
+            })
         return () => {
             netlifyIdentity.off("login")
             netlifyIdentity.off("logout")
@@ -40,7 +41,7 @@ export const AuthContextProvider = ({ children }) => {
     const logout = () => {
         netlifyIdentity.logout()
     }
-    const passvalue = { user, login, logout }
+    const passvalue = { user, login, logout,authReady }
     return (
         <AuthContext.Provider value={passvalue}>
             {children}
