@@ -28,11 +28,7 @@ export const AuthContextProvider = ({ children }) => {
             netlifyIdentity.off("logout")
         }
     }, [])
-    const login = () => {
-        netlifyIdentity.open()
-    }
-    const logout = () => {
-        netlifyIdentity.logout()
+     netlifyIdentity.logout()
     }
     const passvalue = { user, login, logout }
     return (
