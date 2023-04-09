@@ -21,8 +21,8 @@ console.log("Auth:",authReady)
          {!user && <li onClick={login} className='border rounded px-1 border-white hover:border-blue-500 hover:text-blue-500 text-white font-bold cursor-pointer'>Login/Signup</li>}
          {user && <li className='text-white font-bold'>{user.user_metadata.full_name}</li>}
          {user && <li onClick={logout} className='border rounded px-1 border-white hover:border-blue-500 hover:text-blue-500 text-white font-bold cursor-pointer'>Logout</li>}
-        </ul> )
-        }
+        </ul> 
+        )}
       </nav>
 
     </div>

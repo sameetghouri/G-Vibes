@@ -12,7 +12,7 @@ const Guides = () => {
         // if (authReady) {
             fetch("/.netlify/functions/guides", {
                 headers: {
-                    Autorization: "Bearer "+user.token.access_token
+                    Autorization: "Bearer "+ user?.token.access_token
                 }
             })
                 .then(res => {
@@ -28,13 +28,14 @@ const Guides = () => {
     }, [user, authReady])
    
     console.log("Guide Data", guides)
+    console.log("Guid Auth",authReady)
     return (
         <div className="w-full my-4 ">
             <h1 className="font-semibold text-lg">All Guides</h1>
-            {!authReady && <div className="font-bold">Loading...</div>}
+            {/* {!authReady && <div className="font-bold text-center">Loading...</div>} */}
             {error && <div className="bg-pink-300 text-red font-semibold border">{error}</div>}
             {guides && guides.map((item, id) => (
-                <div key={id + 1} className="bg-white py-2 px-4 rounded my-2 shadow-lg">
+                <div key={id + 1} className="bg-white p-4 rounded-lg my-4 shadow">
                     <h2 className="font-semibold">{item.title}</h2>
                     <h3 className="text-gray-800">Writen By {item.author}</h3>
                     <p className="text-gray-700">Lorem ipsum is placeholder text commonly used in the graphic, 
