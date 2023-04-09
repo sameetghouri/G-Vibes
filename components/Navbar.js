@@ -5,8 +5,8 @@ import Image from 'next/image'
 import { useAuthContext } from '@/store/authContext'
 export default function Navbar() {
   const {user,login,logout, authReady} = useAuthContext()
-console.log("User",user)
-console.log(authReady)
+console.log("User:",user)
+console.log("Auth:",authReady)
   return (
     <div className="flex flex-col items-center mb-4 h-64 bg-[url(/banner.png)] bg-cover rounded-b">
       <nav className='w-full flex items-center justify-end py-3'>
