@@ -22,7 +22,6 @@ const Guides = () => {
                 .then(data => setguides(data))
                 .catch(err => {
                     setError(err.message)
-                    setguides("Could not fetch")
                 })
         // }
     }, [user, authReady])
