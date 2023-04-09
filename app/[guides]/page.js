@@ -4,15 +4,15 @@ import { useAuthContext } from "@/store/authContext";
 import { useEffect, useState } from "react";
 
 const Guides = () => {
-    const { user, authReady } = useAuthContext;
+    const { user, authReady } = useAuthContext();
     const [guides, setguides] = useState();
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // if (authReady) {
+        if (authReady) {
             fetch("/.netlify/functions/guides", {
                 headers: {
-                    Autorization: "Bearer "+ user?.token.access_token
+                    Authorization: "Bearer "+ user?.token.access_token
                 }
             })
                 .then(res => {
@@ -23,16 +23,17 @@ const Guides = () => {
                 .catch(err => {
                     setError(err.message)
                 })
-        // }
+        }
     }, [user, authReady])
    
-    console.log("Guide Data", guides)
     console.log("Guid Auth",authReady)
+    console.log('Guid User',user)
+    console.log("Guide Data", guides)
     return (
         <div className="w-full my-4 ">
             <h1 className="font-semibold text-lg">All Guides</h1>
-            {/* {!authReady && <div className="font-bold text-center">Loading...</div>} */}
-            {error && <div className="bg-pink-300 text-red font-semibold border">{error}</div>}
+            {!authReady && <div className="font-bold text-center">Loading...</div>}
+            {error && <div className="bg-pink-200 text-red-600 text-center p-4 rounded-lg">{error}</div>}
             {guides && guides.map((item, id) => (
                 <div key={id + 1} className="bg-white p-4 rounded-lg my-4 shadow">
                     <h2 className="font-semibold">{item.title}</h2>
