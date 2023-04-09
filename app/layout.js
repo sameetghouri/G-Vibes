@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
         <main className=' w-full font-nuni min-h-screen max-w-5xl'>
           <AuthContextProvider>
           <Navbar />
-          <div className='px-2'>{children}</div>
+          <div className='px-3'>{children}</div>
           </AuthContextProvider>
           
         </main>
