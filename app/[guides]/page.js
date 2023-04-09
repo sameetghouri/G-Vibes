@@ -12,7 +12,7 @@ const Guides = () => {
         // if (authReady) {
             fetch("/.netlify/functions/guides", {
                 headers: {
-                    Autorization: `Bearer ${user?.token.access_token}`
+                    Autorization: "Bearer "+user.token.access_token
                 }
             })
                 .then(res => {
@@ -22,7 +22,7 @@ const Guides = () => {
                 .then(data => setguides(data))
                 .catch(err => {
                     setError(err.message)
-                    setguides("Could not fetch data")
+                    setguides("Could not fetch")
                 })
         // }
     }, [user, authReady])
