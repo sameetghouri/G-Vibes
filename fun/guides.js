@@ -12,6 +12,6 @@ exports.handler = async (event,context)=>{
     }
     return{
         statusCode:401,
-        body:Json.stringify({mssg:'Unauthorized'})
+        body:JSON.stringify({mssg:'Unauthorized'})
     }
 }

@@ -10,7 +10,7 @@ const Guides = () => {
 
     useEffect(() => {
             if (authReady){
-            fetch("/.netlify/functions/guids",user && {
+            fetch("/.netlify/functions/guides",user && {
                 headers:{
                     Autorization:`Bearer ${user?.token.access_token}`
                 }
