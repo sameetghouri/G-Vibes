@@ -16,7 +16,7 @@ const Guides = () => {
                 }
             })
                 .then(res => {
-                    if (!res.ok) { throw Error("Could not fetch data") }
+                    if (!res.ok) { throw Error("Log in to view the Content ") }
                     return res.json()
                 })
                 .then(data => setguides(data))
@@ -33,7 +33,7 @@ const Guides = () => {
         <div className="w-full my-4 ">
             <h1 className="font-semibold text-lg">All Guides</h1>
             {!authReady && <div className="font-bold text-center">Loading...</div>}
-            {error && <div className="bg-pink-200 text-red-600 text-center p-4 rounded-lg">{error}</div>}
+            {error && <div className="bg-pink-200 m-4 text-red-600 text-center p-4 rounded-lg">{error}</div>}
             {guides && guides.map((item, id) => (
                 <div key={id + 1} className="bg-white p-4 rounded-lg my-4 shadow">
                     <h2 className="font-semibold">{item.title}</h2>
