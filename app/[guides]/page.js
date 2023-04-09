@@ -9,10 +9,10 @@ const Guides = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        if (authReady) {
+        if (authReady && user) {
             fetch("/.netlify/functions/guides", {
                 headers: {
-                    Authorization: "Bearer "+ user?.token.access_token
+                    Authorization: "Bearer "+ user.token.access_token
                 }
             })
                 .then(res => {
