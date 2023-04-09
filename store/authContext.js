@@ -21,15 +21,15 @@ export const AuthContextProvider = ({ children }) => {
             setuser(null)
             console.log('User Logged Out')
         })
-        
+        netlifyIdentity.on("init", (user) => {
+            setauthReady(true)
+            setuser(user)
+            console.log('Netlify Identity initialized')
+        })
         //init netlify identity connection
             netlifyIdentity.init();
 
-            netlifyIdentity.on("init", () => {
-                setauthReady(true)
-                setuser(user)
-                console.log('Netlify Identity initialized')
-            })
+            
         return () => {
             netlifyIdentity.off("login")
             netlifyIdentity.off("logout")
