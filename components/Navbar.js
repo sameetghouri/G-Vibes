@@ -18,10 +18,7 @@ console.log("Auth:",authReady)
         <ul className='flex items-center gap-3 pr-3'>
           <li><Link href="/" className='hover:text-blue-500 text-white font-semibold'>Home</Link></li>
           <li><Link href="/guides" className='hover:text-blue-500 text-white font-semibold'>Guides</Link></li>
-         {!user && <li onClick={login} className='border rounded px-1 border-white hover:border-blue-500 hover:text-blue-500 text-white font-bold cursor-pointer'>Login/Signup</li>}
-         {user && <li className='text-white font-bold'>{user.user_metadata.full_name}</li>}
-         {user && <li onClick={logout} className='border rounded px-1 border-white hover:border-blue-500 hover:text-blue-500 text-white font-bold cursor-pointer'>Logout</li>}
-        </ul> 
+         </ul> 
         )}
       </nav>
 
