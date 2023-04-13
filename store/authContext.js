@@ -7,19 +7,16 @@ const AuthContext = createContext({
     logout: () => { },
     authReady: false
 });
-
 export const AuthContextProvider = ({ children }) => {
     const [user, setuser] = useState();
     const [authReady, setauthReady] = useState(false);
     useEffect(() => {
         netlifyIdentity.on("login", (user) => {
             setuser(user)
-            netlifyIdentity.close()
-            console.log('User Logged in')
+            netlifyIdentity.close() //closes netlify login window
         })
         netlifyIdentity.on("logout", () => {
             setuser(null)
-            console.log('User Logged Out')
         })
         netlifyIdentity.on("init", (user) => {
             setauthReady(true)
@@ -29,7 +26,7 @@ export const AuthContextProvider = ({ children }) => {
         //init netlify identity connection
             netlifyIdentity.init();
 
-            
+        //we don't need to do this but just for the sack of good practice we off the login and logout events that we are listening above    
         return () => {
             netlifyIdentity.off("login")
             netlifyIdentity.off("logout")
@@ -41,9 +38,9 @@ export const AuthContextProvider = ({ children }) => {
     const logout = () => {
         netlifyIdentity.logout()
     }
-    const passvalue = { user, login, logout, authReady }
+    const values = { user, login, logout, authReady }
     return (
-        <AuthContext.Provider value={passvalue}>
+        <AuthContext.Provider value={values}>
             {children}
         </AuthContext.Provider>
     )
