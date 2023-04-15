@@ -26,11 +26,7 @@ export const AuthContextProvider = ({ children }) => {
         //init netlify identity connection
             netlifyIdentity.init();
 
-        //we don't need to do this but just for the sack of good practice we off the login and logout events that we are listening above    
-        return () => {
-            netlifyIdentity.off("login")
-            netlifyIdentity.off("logout")
-        }
+       
     }, [])
     const login = () => {
         netlifyIdentity.open()
